@@ -1,0 +1,3 @@
+class UserStorage {
+  const userName
+}

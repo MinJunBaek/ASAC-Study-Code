@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Number.isNaN</title>
+  </head>
+  <body>
+    <input id="input" type="text" oninput="validate()" />
+    <script>
+      function validate() {
+        const input = document.getElementById("input");
+        let value = +input.value;
+
+        if (!Number.isNaN(value)) {
+          console.log(value);
+        } else {
+          input.value = "";
+        }
+      }
+    </script>
+  </body>
+</html>
