@@ -1,0 +1,16 @@
+ul {
+    margin-left: 0px;
+    color: red;
+  }
+  
+  .first-item-class {
+    color: green;
+  }
+  
+  #first-item-id {
+    color: blue;
+  }
+  
+  #first-item-id {
+    color: purple;
+  }
