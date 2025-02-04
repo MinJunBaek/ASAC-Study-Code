@@ -28,11 +28,12 @@ public class main {
         System.out.println(memberNotExist);
         System.out.println();
 
+        System.out.println("확인");
+        optionalMember1.orElse(new Member(0, ""));
+
         Member member = optionalMember2.orElseThrow(() -> {return new RuntimeException("유저 정보가 없습니다");});
         System.out.println(member);
         System.out.println();
-
-
     }
 
 }
