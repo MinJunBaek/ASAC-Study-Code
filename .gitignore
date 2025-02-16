@@ -296,3 +296,4 @@ gradle-app.setting
 # End of https://www.toptal.com/developers/gitignore/api/macos,windows,intellij,gradle,maven,java,react,nextjs
 
 # 추가
+/aaron
