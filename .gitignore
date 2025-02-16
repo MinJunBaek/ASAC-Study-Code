@@ -297,4 +297,5 @@ gradle-app.setting
 
 # 추가
 /aaron
-**/.idea/**
+**/.idea
+*/asac-07-kiosk-application
