@@ -14,6 +14,10 @@ public class Member {
     this.email = email;
   }
 
+  public String toString() {
+    return String.format("Member[id=%d, name=%s, email=%s]", id, name, email);
+  }
+
   public String getName() {
     return this.name;
   }
