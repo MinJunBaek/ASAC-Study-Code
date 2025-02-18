@@ -6,7 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-@ToString(onlyExplicitlyIncluded = true)
+@ToString(onlyExplicitlyIncluded = true, includeFieldNames = false)
 @Getter
 @AllArgsConstructor(access = AccessLevel.PUBLIC)
 public class Member {
