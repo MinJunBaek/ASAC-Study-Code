@@ -8,7 +8,9 @@ public class Administrator extends Member {
   private LocalDate allocatedAt;
 
   public Administrator(String name, String email, String role) {
-    super(name, email);
+    super();
+    this.name = name;
+    this.email = email;
     this.role = role;
     this.allocatedAt = LocalDate.now();
   }
