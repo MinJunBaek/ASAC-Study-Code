@@ -12,6 +12,10 @@ public class DemoApplication {
     System.out.println("---");
     System.out.println(aaron);              // 객체
     System.out.println(aaron.toString());   // 객체
-    System.out.println(aaron.getName());    // 필드 중 name
+    
+    System.out.println(aaron.getId());      // @Getter 클래스 단위로 적용하여 모든 필드 조회 가능
+    System.out.println(aaron.getName());    // @Getter (클래스 단위)
+    System.out.println(aaron.getAge());     // @Getter (클래스 단위)
+    System.out.println(aaron.getEmail());   // @Getter (클래스 단위)
   }
 }
