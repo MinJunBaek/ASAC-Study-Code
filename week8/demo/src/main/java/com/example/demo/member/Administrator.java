@@ -7,8 +7,8 @@ public class Administrator extends Member {
   private String role;
   private LocalDate allocatedAt;
 
-  public Administrator(MemberRequestDto dto, String role) {
-    super(dto);
+  public Administrator(String name, String email, String role) {
+    super(null, name, 0, email);
     this.name = name;
     this.email = email;
     this.role = role;
