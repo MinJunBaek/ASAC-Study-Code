@@ -1,7 +1,11 @@
 package com.example.demo.member;
 
 import java.time.LocalDate;
+import lombok.AllArgsConstructor;
+import lombok.ToString;
 
+// @AllArgsConstructor
+@ToString // 상속받아도 자식 클래스의 필드만 노출
 public class Administrator extends Member {
 
   private String role;
@@ -11,12 +15,5 @@ public class Administrator extends Member {
     super(id, name, age, email);
     this.role = role;
     this.allocatedAt = LocalDate.now();
-  }
-
-  public String toString() {
-    return String.format(
-        "Administrator(id=%s, name=%s, age=%s, email=%s, role=%s, allocated=%s)",
-        this.getId(), this.getName(), this.getAge(), this.getEmail(), this.role, this.allocatedAt
-    );
   }
 }
