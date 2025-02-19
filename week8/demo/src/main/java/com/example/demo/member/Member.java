@@ -2,6 +2,7 @@ package com.example.demo.member;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -10,19 +11,11 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.FieldDefaults;
 
-@Setter
-@Getter
-@ToString(onlyExplicitlyIncluded = true, includeFieldNames = false)
-@AllArgsConstructor(access = AccessLevel.PUBLIC)
-@EqualsAndHashCode(onlyExplicitlyIncluded = true)
+@Data
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class Member {
 
-  @ToString.Include(name = "memberId")
-  @EqualsAndHashCode.Include
   Integer id;     // Reference Type 주소를 담는 그릇 : 객체가 담기며, NULL 이 들어갈 수 있다.
-  @ToString.Include(rank = -1) // 출력순위로 0보다 낮을수록 더 후순위
-  @EqualsAndHashCode.Include
   String name;
   int age;        // Primitive Type 값을 담는 그릇 : 값 그 자체가 담기며, NULL 이 들어갈 수 없다. (무조건 값이 있어야하기에 기본값 존재)
   String email;
