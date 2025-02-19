@@ -7,7 +7,7 @@ import lombok.ToString;
 
 // @AllArgsConstructor
 @ToString(callSuper = true) // 상속받아도 자식 클래스의 필드만 노출 callSuper를 통해 부모 클래스의 필드 노출
-@EqualsAndHashCode
+@EqualsAndHashCode(callSuper = true) // Equals 상속
 public class Administrator extends Member {
 
   private String role;
