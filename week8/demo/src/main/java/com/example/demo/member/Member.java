@@ -13,7 +13,7 @@ import lombok.ToString;
 @Getter
 @ToString(onlyExplicitlyIncluded = true, includeFieldNames = false)
 @AllArgsConstructor(access = AccessLevel.PUBLIC)
-@EqualsAndHashCode
+@EqualsAndHashCode(exclude = {"age", "email"})
 public class Member {
 
   @ToString.Include(name = "memberId")
