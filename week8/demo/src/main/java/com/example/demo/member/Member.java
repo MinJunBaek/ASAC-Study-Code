@@ -23,4 +23,15 @@ public class Member {
   @Singular
   List<String> favorites;
 
+  public static class MemberBuilder {
+
+    public MemberBuilder age(int age) {
+      if (age >= 30) {
+        throw new RuntimeException("30세 이상은 설정 불가능 합니다.");
+      }
+      this.age = age;
+      return this;
+    }
+  }
+
 }
