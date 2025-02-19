@@ -9,7 +9,7 @@ public class DemoApplication {
 
   public static void main(String[] args) {
     Administrator aaron = new Administrator(1, "Aaron", 12, "aaron@example.com", "DEVELOPER");
-    Administrator baron = new Administrator(1, "Aaron", 24, "aaron@different.com", "DESIGNER");
+    Administrator baron = new Administrator(2, "Baron", 36, "baron@example.com", "DEVELOPER");
 
     System.out.println("---");
     System.out.println(aaron);              // 객체
