@@ -8,7 +8,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class DemoApplication {
 
   public static void main(String[] args) {
-    Administrator aaron = new Administrator(1, "Aaron", "DEVELOPER");
+    Member aaron = new Member();
+
+    aaron.setId(1);                         // @Setter 클래스 단위로 적용하여 모든 필드 수정 가능
+    aaron.setName("Aaron");                 // @Setter (클래스 단위)
+    aaron.setAge(10);                       // @Setter (클래스 단위)
+    aaron.setEmail("aaron@example.com");    // @Setter (클래스 단위)
 
     System.out.println("---");
     System.out.println(aaron);              // 객체
