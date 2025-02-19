@@ -8,25 +8,19 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class DemoApplication {
 
   public static void main(String[] args) {
-    Member aaron = new Member();
-
-    aaron.setId(1);                         // @Setter 클래스 단위로 적용하여 모든 필드 수정 가능
-    aaron.setName("Aaron");                 // @Setter (클래스 단위)
-    aaron.setAge(10);                       // @Setter (클래스 단위)
-    aaron.setEmail("aaron@example.com");    // @Setter (클래스 단위)
+    Member aaron = new Member(1, "Aaron", 10, "aaron@example.com");
+    Member baron = new Member(1, "Aaron", 10, "aaron@example.com");
 
     System.out.println("---");
     System.out.println(aaron);              // 객체
     System.out.println(aaron.toString());   // 객체
 
-//  aaron.setId();                          // @Setter 필드 단위로 설정되어있지 않아 필드 수정 불가능
-//  aaron.setName();                        // @Setter 필드 단위로 설정되어있지 않아 필드 수정 불가능
-//  aaron.setAge(20);                       // @Setter 필드 단위로 설정되었지만, 접근제어자를 Private 로 바꾸어서 외부에서 호출 불가
-    aaron.setEmail("aaron@different.com");  // @Setter (필드 단위)
+    System.out.println("---");
+    System.out.println(baron);              // 객체
+    System.out.println(baron.toString());   // 객체
 
-    System.out.println(aaron.getId());      // @Getter 클래스 단위로 적용하여 모든 필드 조회 가능
-    System.out.println(aaron.getName());    // @Getter (클래스 단위)
-    System.out.println(aaron.getAge());     // @Getter (클래스 단위)
-    System.out.println(aaron.getEmail());   // @Getter (클래스 단위)
+    System.out.println("---");
+    System.out.println(aaron == baron);
+    System.out.println(aaron.equals(baron));
   }
 }
