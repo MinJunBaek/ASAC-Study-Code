@@ -11,7 +11,7 @@ import org.springframework.boot.context.properties.bind.DefaultValue;
 // @AllArgsConstructor
 @ToString(callSuper = true) // 상속받아도 자식 클래스의 필드만 노출 callSuper를 통해 부모 클래스의 필드 노출
 @EqualsAndHashCode(callSuper = true) // Equals 상속
-@FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class Administrator extends Member {
 
   String role;
