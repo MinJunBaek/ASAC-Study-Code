@@ -9,10 +9,13 @@ import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import lombok.Value;
 import lombok.experimental.FieldDefaults;
+import lombok.experimental.NonFinal;
 
-@Data
-@FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
+// @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)    // @Value 는 각 필드에 대한 본 어노테이션을 내재한다.
+@NonFinal                                                           // 상속(extends)을 위해서는 @NonFinal 통해 class 에게 자유를
+@Value
 public class Member {
 
   Integer id;     // Reference Type 주소를 담는 그릇 : 객체가 담기며, NULL 이 들어갈 수 있다.
