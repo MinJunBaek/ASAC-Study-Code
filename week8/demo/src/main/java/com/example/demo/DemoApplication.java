@@ -2,6 +2,7 @@ package com.example.demo;
 
 import com.example.demo.member.Administrator;
 import com.example.demo.member.Member;
+import java.util.List;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
@@ -11,11 +12,14 @@ public class DemoApplication {
     Member aaron = Member.builder()
         .name("Aaron")
         .email("aaron@example.com")
+        .favorites(List.of("Game", "Animation"))
         .build();
 
     Member baron = Member.builder()
-        // .name("Unnamed")       // 빌더 사용 시 .name() 에 어떤값도 넣지 않으면 name 필드에는 "Unnamed" 가 설정된다.
-        // .email("Undefined")     // 빌더 사용 시 .email() 에 어떤값도 넣지 않으면 name 필드에는 "Undefined" 가 설정된다.
+        .name("Baron")       // 빌더 사용 시 .name() 에 어떤값도 넣지 않으면 name 필드에는 "Unnamed" 가 설정된다.
+        .email("baron@example.com")     // 빌더 사용 시 .email() 에 어떤값도 넣지 않으면 name 필드에는 "Undefined" 가 설정된다.
+        .favorite("Book")
+        .favorite("Cook")
         .build();
 
     System.out.println("---");
