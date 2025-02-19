@@ -8,8 +8,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class DemoApplication {
 
   public static void main(String[] args) {
-    Member aaron = new Member(1, "Aaron", 12, "aaron@example.com");
-    Member baron = new Member(1, "Aaron", 24, "aaron@different.com");
+    Administrator aaron = new Administrator(1, "Aaron", 12, "aaron@example.com", "DEVELOPER");
+    Administrator baron = new Administrator(1, "Aaron", 24, "aaron@different.com", "DESIGNER");
 
     System.out.println("---");
     System.out.println(aaron);              // 객체
