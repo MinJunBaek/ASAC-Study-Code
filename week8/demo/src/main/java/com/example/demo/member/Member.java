@@ -16,7 +16,7 @@ public class Member {
   int age;        // Primitive Type 값을 담는 그릇 : 값 그 자체가 담기며, NULL 이 들어갈 수 없다. (무조건 값이 있어야하기에 기본값 존재)
   String email = "Undefined";
 
-  public Member(Integer id, String name, int age, String eamil) {
+  private Member(Integer id, String name, int age, String eamil) {
     this.id = id;
     this.name = name;
     this.age = age;

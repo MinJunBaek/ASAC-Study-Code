@@ -1,5 +1,6 @@
 package com.example.demo.member;
 
+import com.example.demo.dto.MemberCreateRequestDto;
 import java.time.LocalDate;
 import lombok.AccessLevel;
 import lombok.ToString;
