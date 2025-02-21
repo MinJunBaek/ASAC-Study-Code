@@ -7,22 +7,16 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class DemoApplication {
 
   public static void main(String[] args) {
-    Member aaron = Member.getInstance();
-    Member baron = Member.getInstance();
+    Member aaron = new Member(1, "Aaron");
 
     System.out.println("---");
-    System.out.println(aaron);
-//  System.out.println(aaron.toString());   // 객체
-//  System.out.println(aaron.getName());    // 필드 중 name
-//  System.out.println(aaron.name);         // 필드 중 name (접근제어자 private)
+    System.out.println(aaron);              // 객체 주소 (aaron 주소값 == baron 주소값)
+    System.out.println(aaron.toString());   // 객체
+//      aaron.setId(2);                         // final 변수는 초기화(Initialized) 이후 변경될 수 없다.
+//      aaron.setName("Baron");                 // final 변수는 초기화(Initialized) 이후 변경될 수 없다.
+    aaron.setAge(10);                       // Non-final 변수는 언제든 Setter 호출이 가능하다.
+    aaron.setEmail("aaron@example.com");    // Non-final 변수는 언제든 Setter 호출이 가능하다.
 
-    System.out.println("---");
-    System.out.println(baron);              // 객체 주소 (aaron 주소값 == baron 주소값)
-//  System.out.println(baron.toString());   // 객체
-//  System.out.println(baron.getName());    // 필드 중 name
-//  System.out.println(baron.name);         // 필드 중 name (접근제어자 private)
-
-    System.out.println("---");
-    System.out.println(aaron == baron);
+    System.out.println(aaron.toString());   // 객체
   }
 }
