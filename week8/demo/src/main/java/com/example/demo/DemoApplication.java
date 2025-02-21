@@ -1,6 +1,8 @@
 package com.example.demo;
 
 import com.example.demo.member.Member;
+import java.lang.reflect.Array;
+import java.util.Arrays;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
@@ -16,5 +18,8 @@ public class DemoApplication {
     System.out.println(Member.MEMBER_TO_STRING_FORMAT);
     System.out.println(member.toString(member));
     System.out.println(Member.toString(member));
+
+    Member.Favorite non_static_favorite_1 = member.new Favorite(Arrays.asList("BOOK", "COOK"));
+    Member.Favorite non_static_favorite_2 = new Member().new Favorite(Arrays.asList("BOOK", "COOK"));
   }
 }

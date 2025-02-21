@@ -1,9 +1,12 @@
 package com.example.demo.member;
 
+import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @Getter
+@NoArgsConstructor
 @AllArgsConstructor
 public class Member {
 
@@ -20,5 +23,11 @@ public class Member {
 
   public static String toString(Member member) {
     return String.format(MEMBER_TO_STRING_FORMAT, member.id, member.name, member.age, member.email);
+  }
+
+  @AllArgsConstructor
+  public class Favorite {
+
+    private List<String> favorites;
   }
 }
