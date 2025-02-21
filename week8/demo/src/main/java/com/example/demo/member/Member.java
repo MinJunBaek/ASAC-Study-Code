@@ -1,20 +1,22 @@
 package com.example.demo.member;
 
 import lombok.AccessLevel;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.ToString;
 import lombok.experimental.FieldDefaults;
 
-@ToString
-@Setter(AccessLevel.PUBLIC)
+@Getter
 @FieldDefaults(level = AccessLevel.PRIVATE)
-@RequiredArgsConstructor
+@AllArgsConstructor
 public class Member {
 
-  final Integer id;
-  final String name;
+  Integer id;
+  String name;
   int age;
   String email;
 
+  public final String toString() {
+    return String.format("Member(id=%s, name=%s, age=%s, email=%s)", this.id, this.name, this.age, this.email);
+  }
 }
