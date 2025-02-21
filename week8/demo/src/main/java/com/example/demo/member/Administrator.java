@@ -4,6 +4,8 @@ import java.time.LocalDate;
 
 public class Administrator extends Member {
 
+  public static String ADMINISTRATOR_TO_STRING_FORMAT = "Administrator(id=%s, name=%s, age=%s, email=%s, role=%s, allocated=%s)";
+
   private String role;
   private LocalDate allocatedAt;
 
@@ -15,7 +17,7 @@ public class Administrator extends Member {
 
   public String toString() {
     return String.format(
-        "Administrator(id=%s, name=%s, age=%s, email=%s, role=%s, allocated=%s)",
+        ADMINISTRATOR_TO_STRING_FORMAT,
         this.getId(), this.getName(), this.getAge(), this.getEmail(), this.role, this.allocatedAt
     );
   }
