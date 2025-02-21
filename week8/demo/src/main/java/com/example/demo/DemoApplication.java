@@ -19,7 +19,9 @@ public class DemoApplication {
     System.out.println(member.toString(member));
     System.out.println(Member.toString(member));
 
-    Member.Favorite non_static_favorite_1 = member.new Favorite(Arrays.asList("BOOK", "COOK"));
-    Member.Favorite non_static_favorite_2 = new Member().new Favorite(Arrays.asList("BOOK", "COOK"));
+//    Member.Favorite non_static_favorite_1 = member.new Favorite(Arrays.asList("BOOK", "COOK"));
+//    Member.Favorite non_static_favorite_2 = new Member().new Favorite(Arrays.asList("BOOK", "COOK"));
+    Member.Favorite static_favorite = new Member.Favorite(Arrays.asList("BOOK", "COOK"));
+
   }
 }
