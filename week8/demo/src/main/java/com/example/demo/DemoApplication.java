@@ -14,5 +14,7 @@ public class DemoApplication {
     System.out.println(member.toString());   // 객체
     System.out.println(member.MEMBER_TO_STRING_FORMAT);
     System.out.println(Member.MEMBER_TO_STRING_FORMAT);
+    System.out.println(member.toString(member));
+    System.out.println(Member.toString(member));
   }
 }
