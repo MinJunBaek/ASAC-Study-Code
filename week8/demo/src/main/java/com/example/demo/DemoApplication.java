@@ -6,7 +6,9 @@ import com.example.demo.hero.StrengthHero;
 import com.example.demo.hero.common.Hero;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
@@ -82,6 +84,35 @@ public class DemoApplication {
 
     System.out.println(string_list_number);
     System.out.println(integer_list_number);
+
+    System.out.println("----------------------------------");
+
+    /* Collection 3) Set 세트 */
+    // Set<String> string_set = new HashSet<>();                  // 빈 Set 선언 (String 요소)
+    // string_set.add("1");
+    // string_set.add("2");
+    // string_set.add("3");
+    Set<String> string_set = new HashSet<>(Arrays.asList("1", "2", "3"));
+    string_set.add("4");                                // 추가
+    string_set.remove("1");                          // 삭제
+    System.out.println(string_set.contains("1"));       // 포함여부 확인
+    string_set.clear();                                 // 리셋
+    System.out.println(string_set.isEmpty());           // 비어있는지 검사
+    System.out.println(string_set.size());              // 개수
+    // Set<Integer> integer_set = new HashSet<>();                // 빈 Set 선언 (Integer 요소)
+    // integer_set.add(1);
+    // integer_set.add(2);
+    // integer_set.add(3);
+    Set<Integer> integer_set = new HashSet<>(Arrays.asList(1, 2, 3));
+    integer_set.add(1);                                  // 추가
+    integer_set.remove(3);                            // 삭제
+    System.out.println(integer_set.contains(1));         // 포함여부 확인
+    integer_set.clear();                                 // 리셋
+    System.out.println(integer_set.isEmpty());           // 비어있는지 검사
+    System.out.println(integer_set.size());              // 개수 확인
+
+    System.out.println(string_set);
+    System.out.println(integer_set);
   }
 
 }
