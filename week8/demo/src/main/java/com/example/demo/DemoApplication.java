@@ -26,6 +26,7 @@ public class DemoApplication {
     hero_map.put("민", agility);
     hero_map.put("지", intelligence);
 
+    System.out.println("-- Map<String, Hero> hero_map --");
     System.out.println("- 🟥 힘 속성 영웅");
     hero_map.get("힘").attack();
     hero_map.get("힘").ultimate();
@@ -38,6 +39,26 @@ public class DemoApplication {
     System.out.println("- 🟦 지능 속성 영웅");
     hero_map.get("지").attack();
     hero_map.get("지").ultimate();
+
+    System.out.println("----------------------------------");
+
+    List<Hero> hero_list = new ArrayList<>();
+    hero_list.add(strength);
+    hero_list.add(agility);
+    hero_list.add(intelligence);
+
+    System.out.println("-- List<Hero> hero_list --");
+    System.out.println("- 🟥 힘 속성 영웅");
+    hero_list.get(0).attack();
+    hero_list.get(0).ultimate();
+
+    System.out.println("- 🟩 민첩 속성 영웅");
+    hero_list.get(1).attack();
+    hero_list.get(1).ultimate();
+
+    System.out.println("- 🟦 지능 속성 영웅");
+    hero_list.get(2).attack();
+    hero_list.get(2).ultimate();
 
   }
 
