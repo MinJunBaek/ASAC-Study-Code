@@ -16,6 +16,7 @@ public class DemoApplication {
     System.out.println("- 🟥 힘 속성 영웅");
     strength.attack();
     strength.ultimate();
+    strength.berserk();
 
     System.out.println("- 🟩 민첩 속성 영웅");
     agility.attack();

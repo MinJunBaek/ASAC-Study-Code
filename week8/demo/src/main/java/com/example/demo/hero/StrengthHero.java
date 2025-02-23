@@ -14,4 +14,7 @@ public class StrengthHero implements Hero {
     System.out.println("지진 생성");
   }
 
+  public void berserk() {
+    System.out.println("각성");
+  }
 }
