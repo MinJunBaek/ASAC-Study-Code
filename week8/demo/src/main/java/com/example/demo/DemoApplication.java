@@ -6,8 +6,10 @@ import com.example.demo.hero.StrengthHero;
 import com.example.demo.hero.common.Hero;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -113,6 +115,50 @@ public class DemoApplication {
 
     System.out.println(string_set);
     System.out.println(integer_set);
+
+    System.out.println("----------------------------------");
+
+    Map<Integer, String> string_map = new HashMap<>();            // 빈 Map 선언 (String 요소)
+    string_map.put(1, "1");
+    string_map.put(2, "2");
+    string_map.put(3, "3");
+    /* 주의 : Arrays.asList 와 Map.of 으로 생성되는 Collection 은 Immutable 불변성이기에 수정 불가 - get, put, remove 등 불가 */
+    // Map<Integer, String> string_map = Map.of(1, "1", 2, "2", 3, "3");
+    System.out.println(string_map.get(3));                        // 조회
+    string_map.put(4, "4");                                       // 추가
+    string_map.replace(4, "5");                                   // 수정
+    System.out.println(string_map);
+    string_map.remove(3);                                    // 삭제
+    System.out.println(string_map.containsKey(1));                // 포함
+    System.out.println(string_map.containsKey("1"));              // 포함
+    System.out.println(string_map.entrySet());                    // - Entry = [Key, Value] (Set)
+    System.out.println(string_map.keySet());                      // - Key (Set)
+    System.out.println(string_map.values());                      // - Value (List)
+    string_map.clear();                                           // 리셋
+    System.out.println(string_map.isEmpty());                     // 검사
+    System.out.println(string_map.size());                        // 개수
+
+    Map<Integer, Integer> integer_map = new HashMap<>();        // 빈 Map 선언 (Integer 요소)
+    integer_map.put(1, 1);
+    integer_map.put(2, 2);
+    integer_map.put(3, 3);
+    /* 주의 : Arrays.asList 와 Map.of 으로 생성되는 Collection 은 Immutable 불변성이기에 수정 불가 - get, put, remove 등 불가 */
+    // Map<Integer, Integer> integer_map = Map.of(1, 1, 2, 2, 3, 3);
+    System.out.println(integer_map.get(3));                       // 조회
+    integer_map.put(4, 4);                                        // 추가
+    integer_map.replace(4, 5);                                    // 수정
+    integer_map.remove(3);                                   // 삭제
+    System.out.println(integer_map.containsKey(1));               // 포함
+    System.out.println(integer_map.containsValue(1));             // 포함
+    System.out.println(integer_map.entrySet());                   // - Entry = [Key, Value] (Set)
+    System.out.println(integer_map.keySet());                     // - Key (Set)
+    System.out.println(integer_map.values());                     // - Value (List)
+    integer_map.clear();                                          // 리셋
+    System.out.println(integer_map.isEmpty());                    // 검사
+    System.out.println(integer_map.size());                       // 개수
+
+    System.out.println(string_map);
+    System.out.println(integer_map);
   }
 
 }
