@@ -21,31 +21,43 @@ public class DemoApplication {
 
   public static void main(String[] args) {
     StrengthHeroRepository strengthHeroRepository = new StrengthHeroRepository();
-    AgilityHeroRepository agilityHeroRepository = new AgilityHeroRepository();
-    IntelligenceHeroRepository intelligenceHeroRepository = new IntelligenceHeroRepository();
+    strengthHeroRepository.save(new StrengthHero("Dragon Knight"));
+    strengthHeroRepository.save(new StrengthHero("Pudge"));
+    strengthHeroRepository.save(new StrengthHero("Slardar"));
+    strengthHeroRepository.delete("Pudge");
 
-    Hero strength = strengthHeroRepository.findById(1);
-    Hero agility = agilityHeroRepository.findById(2);
-    Hero intelligence = intelligenceHeroRepository.findById(3);
+    AgilityHeroRepository agilityRepository = new AgilityHeroRepository();
+    agilityRepository.save(new AgilityHero("Weaver"));
+    agilityRepository.save(new AgilityHero("Slark"));
+    agilityRepository.save(new AgilityHero("Juggernaut"));
+    agilityRepository.delete("Weaver");
+    agilityRepository.findById("Slark");
 
-    Map<String, Hero> hero_map = new HashMap<>();
-    hero_map.put("힘", strength);
-    hero_map.put("민", agility);
-    hero_map.put("지", intelligence);
+    IntelligenceHeroRepository intelligenceRepository = new IntelligenceHeroRepository();
+    intelligenceRepository.save(new IntelligenceHero("Puck"));
+    intelligenceRepository.save(new IntelligenceHero("Crystal Maiden"));
+    intelligenceRepository.save(new IntelligenceHero("Zeus"));
+    intelligenceRepository.delete("Puck");
 
-    System.out.println("-- Map<String, Hero> hero_map --");
+    Hero strength = strengthHeroRepository.findById("Slardar");
+    Hero agility = agilityRepository.findById("Slark");
+    Hero intelligence = intelligenceRepository.findById("Zeus");
+
     System.out.println("- 🟥 힘 속성 영웅");
-    hero_map.get("힘").attack();
-    hero_map.get("힘").ultimate();
-    ((StrengthHero) strength).berserk(); // 인터페이스 공통 형상 메서드만 호출 가능 = 인터페이스 다형성(Polymorphism)
+//      strength.getName();     // 인터페이스 공통 형상 메서드만 호출 가능 = 인터페이스 다형성(Polymorphism)
+    strength.attack();
+    strength.ultimate();
+//      strength.berserk();     // 인터페이스 공통 형상 메서드만 호출 가능 = 인터페이스 다형성(Polymorphism)
 
     System.out.println("- 🟩 민첩 속성 영웅");
-    hero_map.get("민").attack();
-    hero_map.get("민").ultimate();
+//      agility.getName();      // 인터페이스 공통 형상 메서드만 호출 가능 = 인터페이스 다형성(Polymorphism)
+    agility.attack();
+    agility.ultimate();
 
     System.out.println("- 🟦 지능 속성 영웅");
-    hero_map.get("지").attack();
-    hero_map.get("지").ultimate();
+//      intelligence.getName(); // 인터페이스 공통 형상 메서드만 호출 가능 = 인터페이스 다형성(Polymorphism)
+    intelligence.attack();
+    intelligence.ultimate();
 
   }
 
