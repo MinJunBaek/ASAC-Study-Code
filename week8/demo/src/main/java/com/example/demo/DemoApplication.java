@@ -1,8 +1,11 @@
 package com.example.demo;
 
 import com.example.demo.hero.AgilityHero;
+import com.example.demo.hero.AgilityHeroRepository;
 import com.example.demo.hero.IntelligenceHero;
+import com.example.demo.hero.IntelligenceHeroRepository;
 import com.example.demo.hero.StrengthHero;
+import com.example.demo.hero.StrengthHeroRepository;
 import com.example.demo.hero.common.Hero;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -17,9 +20,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class DemoApplication {
 
   public static void main(String[] args) {
-    Hero strength = new StrengthHero();
-    Hero agility = new AgilityHero();
-    Hero intelligence = new IntelligenceHero();
+    StrengthHeroRepository strengthHeroRepository = new StrengthHeroRepository();
+    AgilityHeroRepository agilityHeroRepository = new AgilityHeroRepository();
+    IntelligenceHeroRepository intelligenceHeroRepository = new IntelligenceHeroRepository();
+
+    Hero strength = strengthHeroRepository.findById(1);
+    Hero agility = agilityHeroRepository.findById(2);
+    Hero intelligence = intelligenceHeroRepository.findById(3);
 
     Map<String, Hero> hero_map = new HashMap<>();
     hero_map.put("힘", strength);
@@ -39,26 +46,6 @@ public class DemoApplication {
     System.out.println("- 🟦 지능 속성 영웅");
     hero_map.get("지").attack();
     hero_map.get("지").ultimate();
-
-    System.out.println("----------------------------------");
-
-    List<Hero> hero_list = new ArrayList<>();
-    hero_list.add(strength);
-    hero_list.add(agility);
-    hero_list.add(intelligence);
-
-    System.out.println("-- List<Hero> hero_list --");
-    System.out.println("- 🟥 힘 속성 영웅");
-    hero_list.get(0).attack();
-    hero_list.get(0).ultimate();
-
-    System.out.println("- 🟩 민첩 속성 영웅");
-    hero_list.get(1).attack();
-    hero_list.get(1).ultimate();
-
-    System.out.println("- 🟦 지능 속성 영웅");
-    hero_list.get(2).attack();
-    hero_list.get(2).ultimate();
 
   }
 
