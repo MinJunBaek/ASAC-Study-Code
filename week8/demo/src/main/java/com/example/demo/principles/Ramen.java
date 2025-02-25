@@ -1,8 +1,8 @@
 package com.example.demo.principles;
 
 import com.example.demo.principles.concretes.Noodle;
-import com.example.demo.principles.concretes.Soup;
 import com.example.demo.principles.concretes.Water;
+import com.example.demo.principles.interfaces.Soup;
 
 public class Ramen {
 
