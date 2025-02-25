@@ -37,6 +37,8 @@ public class DemoApplication {
       log.warn("유저가 잘못된 비밀번호를 입력 중", e);
     } catch (DatabaseException e) {
       log.warn("잘못된 유저 정보로인한 데이터베이스 접속 실패", e);
+    } catch (Exception e) {
+      log.error("데이터베이스 내 알 수 없는 오류 발생 - 원인 분석 및 대응 필요", e);
     }
   }
 }
