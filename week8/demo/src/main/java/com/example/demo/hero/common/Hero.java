@@ -1,9 +1,29 @@
 package com.example.demo.hero.common;
 
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+
+@Getter
+@RequiredArgsConstructor
 public abstract class Hero {
 
-  public abstract void attack();
+  private final String name;
 
-  public abstract void ultimate();
+  protected void printHero() {
+    System.out.printf("[%s] ", this.name);
+  }
 
+  public void heroAttack() {
+    printHero();
+    attack();
+  }
+
+  protected abstract void attack();
+
+  public void heroUltimate() {
+    printHero();
+    attack();
+  }
+
+  protected abstract void ultimate();
 }
