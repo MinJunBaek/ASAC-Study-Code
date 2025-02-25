@@ -1,5 +1,6 @@
 package com.example.demo.type;
 
+import java.util.Optional;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -14,4 +15,13 @@ public enum MessageType {
 
   String message;
   SendMediaType media;
+
+  public static MessageType findByName(String name) {
+    for (MessageType each : MessageType.values()) {
+      if (each.name().equals(name)) {
+        return each;
+      }
+    }
+    throw new RuntimeException("ENUM 내 존재하지 않는 이름입니다 : " + name);
+  }
 }
