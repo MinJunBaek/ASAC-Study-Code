@@ -6,6 +6,7 @@ import com.example.demo.hero.IntelligenceHero;
 import com.example.demo.hero.IntelligenceHeroRepository;
 import com.example.demo.hero.StrengthHero;
 import com.example.demo.hero.StrengthHeroRepository;
+import com.example.demo.hero.common.Hero;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
@@ -23,7 +24,6 @@ public class DemoApplication {
     agilityRepository.save(new AgilityHero("Slark"));
     agilityRepository.save(new AgilityHero("Juggernaut"));
     agilityRepository.delete("Weaver");
-    agilityRepository.findById("Slark");
 
     IntelligenceHeroRepository intelligenceRepository = new IntelligenceHeroRepository();
     intelligenceRepository.save(new IntelligenceHero("Puck"));
@@ -32,25 +32,25 @@ public class DemoApplication {
     intelligenceRepository.delete("Puck");
 
     // Hero strength = strengthHeroRepository.findById("Slardar");
-    StrengthHero strength = strengthHeroRepository.findById("Slardar");
+    Hero strength = strengthHeroRepository.findById("Slardar");
     // Hero agility = agilityRepository.findById("Slark");
-    AgilityHero agility = agilityRepository.findById("Slark");
+    Hero agility = agilityRepository.findById("Slark");
     // Hero intelligence = intelligenceRepository.findById("Zeus");
-    IntelligenceHero intelligence = intelligenceRepository.findById("Zeus");
+    Hero intelligence = intelligenceRepository.findById("Zeus");
 
     System.out.println("- 🟥 힘 속성 영웅");
-    strength.getName();     // 인터페이스 다형성(Polymorphism) 상관없이 구체(구현)클래스 내 메서드 호출 가능
+    System.out.println(strength.getName());     // 인터페이스 다형성(Polymorphism) 상관없이 구체(구현)클래스 내 메서드 호출 가능
     strength.heroAttack();
     strength.heroUltimate();
-    strength.heroBerserk(); // 인터페이스 다형성(Polymorphism) 상관없이 구체(구현)클래스 내 메서드 호출 가능
+    ((StrengthHero) strength).heroBerserk(); // 인터페이스 다형성(Polymorphism) 상관없이 구체(구현)클래스 내 메서드 호출 가능
 
     System.out.println("- 🟩 민첩 속성 영웅");
-    agility.getName();      // 인터페이스 다형성(Polymorphism) 상관없이 구체(구현)클래스 내 메서드 호출 가능
+    System.out.println(agility.getName());      // 인터페이스 다형성(Polymorphism) 상관없이 구체(구현)클래스 내 메서드 호출 가능
     agility.heroAttack();
     agility.heroUltimate();
 
     System.out.println("- 🟦 지능 속성 영웅");
-    intelligence.getName(); // 인터페이스 다형성(Polymorphism) 상관없이 구체(구현)클래스 내 메서드 호출 가능
+    System.out.println(intelligence.getName()); // 인터페이스 다형성(Polymorphism) 상관없이 구체(구현)클래스 내 메서드 호출 가능
     intelligence.heroAttack();
     intelligence.heroUltimate();
 

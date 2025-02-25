@@ -22,7 +22,7 @@ public abstract class Hero {
 
   public final void heroUltimate() {
     printHero();
-    attack();
+    ultimate();
   }
 
   protected abstract void ultimate();
