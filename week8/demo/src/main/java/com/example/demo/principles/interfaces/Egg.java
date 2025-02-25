@@ -1,6 +1,6 @@
 package com.example.demo.principles.interfaces;
 
-public interface Soup {
+public interface Egg {
 
   public abstract void input();
 
