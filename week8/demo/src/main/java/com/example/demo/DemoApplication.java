@@ -16,7 +16,7 @@ public class DemoApplication {
         throw new SQLException("데이터베이스 접속 실패"); // throw로 예외를 발생시킴
       }
     } catch (SQLException e) {
-      log.error(String.format("데이터 베이스 계정 불일치 - username: %s, password: %s", username, password), e);
+      log.error(String.format("데이터 베이스 계정 불일치 - username: %s, password: %s", username, password));
       // e를 붙여야 어디서 발생했는지 알수있음
       // log.error("데이터 베이스 계정 불일치 - username: {}, password: {}", username, password, e);
     }
