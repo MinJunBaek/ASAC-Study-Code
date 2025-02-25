@@ -1,8 +1,6 @@
 package com.example.demo;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
+import java.sql.SQLException;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
@@ -12,7 +10,7 @@ public class DemoApplication {
     if (username.equals("admin") && password.equals("1234")) {
       System.out.println("- Database is connected successfully.");
     } else {
-      throw new RuntimeException("데이터베이스 접속 실패");
+      throw new SQLException("데이터베이스 접속 실패");
     }
   }
 
