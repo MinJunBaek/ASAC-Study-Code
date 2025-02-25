@@ -9,8 +9,9 @@ import lombok.experimental.FieldDefaults;
 @RequiredArgsConstructor
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
 public enum MessageType {
-  LOVE("사랑합니다."),
-  THANKS("감사합니다.");
+  LOVE("사랑합니다.", SendMediaType.SNS),
+  THANKS("감사합니다.", SendMediaType.EMAIL);
 
   String message;
+  SendMediaType media;
 }

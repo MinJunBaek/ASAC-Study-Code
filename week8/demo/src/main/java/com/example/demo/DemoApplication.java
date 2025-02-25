@@ -6,8 +6,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class DemoApplication {
 
-  public static void createMessage(MessageType message) {
-    System.out.println("당신에게 메세지를 보냅니다. : " + message.getMessage());
+  public static void createMessage(MessageType type) {
+    System.out.println("당신에게 메세지를 보냅니다. : " + type.getMessage());
+    System.out.println("다음으로부터 전송되었습니다. : " + type.getMedia().getSender());
   }
 
   public static void main(String[] args) {
