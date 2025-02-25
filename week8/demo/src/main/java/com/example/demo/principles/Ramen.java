@@ -1,11 +1,25 @@
 package com.example.demo.principles;
 
+import com.example.demo.principles.concretes.Noodle;
+import com.example.demo.principles.concretes.Soup;
+import com.example.demo.principles.concretes.Water;
+
 public class Ramen {
 
+  private final Water water;
+  private final Soup soup;
+  private final Noodle noodle;
+
+  public Ramen(Water water, Soup soup, Noodle noodle) {
+    this.water = water;
+    this.soup = soup;
+    this.noodle = noodle;
+  }
+
   public void make() {
-    System.out.println("물 끓이기");
-    System.out.println("스프 넣기");
-    System.out.println("면 넣기");
+    water.input();
+    soup.input();
+    noodle.input();
   }
 
 }
