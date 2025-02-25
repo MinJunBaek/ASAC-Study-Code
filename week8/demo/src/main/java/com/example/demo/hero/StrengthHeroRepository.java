@@ -12,10 +12,10 @@ public class StrengthHeroRepository implements HeroRepository<StrengthHero, Stri
     return repository.get(name);
   }
 
-  public String save(StrengthHero hero) {
-    repository.put(hero.getName(), hero);
-    return hero.getName();
-  }
+//  public String save(StrengthHero hero) {
+//    repository.put(hero.getName(), hero);
+//    return hero.getName();
+//  }
 
   public void delete(String name) {
     repository.remove(name);

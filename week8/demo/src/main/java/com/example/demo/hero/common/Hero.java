@@ -1,6 +1,6 @@
 package com.example.demo.hero.common;
 
-public interface Hero {
+public abstract class Hero {
 
   public abstract void attack();
 

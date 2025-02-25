@@ -6,7 +6,7 @@ import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 @Getter
-public class IntelligenceHero implements Hero {
+public class IntelligenceHero extends Hero {
 
   private final String name;
 
