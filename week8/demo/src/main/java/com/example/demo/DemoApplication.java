@@ -14,7 +14,9 @@ public class DemoApplication {
         throw new SQLException("데이터베이스 접속 실패"); // throw로 예외를 발생시킴
       }
     } catch (SQLException e) {
-      e.printStackTrace();
+      System.out.println(e.getMessage());
+      System.out.println(e.getStackTrace()[0]);
+      System.out.println(e.getStackTrace()[1]);
     }
   }
 
