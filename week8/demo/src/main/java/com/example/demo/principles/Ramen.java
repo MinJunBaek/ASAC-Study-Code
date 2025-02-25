@@ -26,7 +26,6 @@ public class Ramen {
     water.input();
     soup.input();
     onion.input();
-    ;
     egg.input();
     noodle.input();
   }
