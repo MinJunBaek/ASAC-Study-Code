@@ -8,9 +8,9 @@ public class AgilityHero extends Hero {
     super(name);
   }
 
-  protected void printHero() {
-    System.out.print("[Agility Hero] ");
-  }
+//  protected void printHero() {
+//    System.out.print("[Agility Hero] ");
+//  }
 
   @Override
   protected void attack() {

@@ -8,9 +8,9 @@ public class IntelligenceHero extends Hero {
     super(name);
   }
 
-  protected void printHero() {
-    System.out.print("[Intelligence Hero] ");
-  }
+//  protected void printHero() {
+//    System.out.print("[Intelligence Hero] ");
+//  }
 
   @Override
   protected void attack() {
