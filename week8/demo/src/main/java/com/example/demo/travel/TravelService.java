@@ -6,11 +6,10 @@ import lombok.extern.slf4j.Slf4j;
 public class TravelService {
 
   public void reservation() {
-    Database database = new Database();
-    database.connect(null, "9876");
-//    database.connect("user", null);
-//    database.connect("user", "9876");
-//    database.connect("admin", "1234");
+//    Database database = new Database(null, "9876");
+//    Database database = new Database("user", null);
+//    Database database = new Database("user", "9876");
+    Database database = new Database("admin", "1234");
 
     database.save("항공권");
     database.save("리조트");
