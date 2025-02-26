@@ -34,7 +34,17 @@ public class DemoApplication {
 //      connect("user", "9876");
       connect("admin", "1234");
     } catch (CustomException e) {
-      log.error("[{}] (Priority: {}) {}", e.getType(), e.getPriority(), e.getMessage(), e);
+      String message = String.format("[%s] (Priority: %s) %s", e.getType(), e.getPriority(), e.getMessage());
+      switch (e.getPriority()) {
+        case 0:
+          log.error(message, e);
+          break;
+        case 1:
+        case 2:
+        default:
+          log.warn(message, e);
+          break;
+      }
     }
   }
 }
