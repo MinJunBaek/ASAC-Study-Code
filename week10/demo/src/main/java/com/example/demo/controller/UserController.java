@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -9,14 +10,14 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/users")
 public class UserController {
 
-  @RequestMapping(value = "", method = RequestMethod.GET)
+  @GetMapping(value = "")
   public ModelAndView userPage() {
     ModelAndView modelAndView = new ModelAndView();
     modelAndView.setViewName("/users/list");
     return modelAndView;
   }
 
-  @RequestMapping(value = "/1/detail", method = RequestMethod.GET)
+  @GetMapping(value = "/1/detail")
   public ModelAndView detailPage() {
     ModelAndView modelAndView = new ModelAndView();
     modelAndView.addObject("id", 1);
