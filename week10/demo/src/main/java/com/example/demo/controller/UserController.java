@@ -5,6 +5,7 @@ import com.example.demo.service.UserServiceInterface;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,16 +22,16 @@ public class UserController {
   private UserServiceInterface AUserService;
 
   @GetMapping(value = "")
-  public String userPage(ModelMap model) {
+  public String userPage(Model model) {
     List<User> users = AUserService.findAll();
     model.addAttribute("users", users);
     return "/users/list";
   }
 
-  // ModelMap은 Spring MVC에서 컨트롤러에서 뷰로 데이터를 전달하는 객체
-  // ModelMap은 Map<String, object>를 확장한 형태로 더 유연하게 사용할수 있음
+  // Spring MCV에서는 Model, ModelMap, ModelAndView 모두 컨트롤러에서 뷰로 데이터를 전달하는 역할을 함.
+  // 하지만 ModelMap은 Map 기능을 활용할때 사용되고, Model은 저 직관적이기 때문에 ModelMap 보다 자주 사용됨.
   @GetMapping(value = "/1/detail")
-  public String detailPage(ModelMap model) {
+  public String detailPage(Model model) {
     User user = AUserService.findById(1);
     model.addAttribute("id", user.getId());
     model.addAttribute("name", user.getName());
