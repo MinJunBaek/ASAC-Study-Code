@@ -13,13 +13,21 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/users")
 public class UserController {
 
+  // UserServiceInterface의 구현체를 찾아서 List 형태로 주입
+  // 즉, Spring 컨테이너에 등록된 모든 UserServiceInterface의 구현체가 자동으로 리스트에 추가됨.
   @Autowired
-  private UserServiceInterface userService;
+  private List<UserServiceInterface> userService;
 
   @GetMapping(value = "")
   public ModelAndView userPage() {
     ModelAndView modelAndView = new ModelAndView();
-    List<User> users = userService.findAll();
+    // userService 리스트에 있는 모든 UserServiceInterface 구현체의 이름을 콘솔에 출력
+    // 즉, Spring이 주입한 여러 개의 UserService가 잘 들어왔는지 확인하는 용도
+    userService.forEach((each) -> {
+      System.out.println(each.getClass().getSimpleName());
+    });
+    UserServiceInterface AUserService = userService.get(0);
+    List<User> users = AUserService.findAll();
     modelAndView.addObject("users", users);
     modelAndView.setViewName("/users/list");
     return modelAndView;
@@ -28,7 +36,11 @@ public class UserController {
   @GetMapping(value = "/1/detail")
   public ModelAndView detailPage() {
     ModelAndView modelAndView = new ModelAndView();
-    User user = userService.findById(1);
+    userService.forEach((each) -> {
+      System.out.println(each.getClass().getSimpleName());
+    });
+    UserServiceInterface AUserService = userService.get(0);
+    User user = AUserService.findById(1);
     modelAndView.addObject("id", user.getId());
     modelAndView.addObject("name", user.getName());
     modelAndView.addObject("age", user.getAge());
