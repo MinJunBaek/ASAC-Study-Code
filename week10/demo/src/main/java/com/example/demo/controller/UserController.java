@@ -5,6 +5,7 @@ import com.example.demo.service.UserServiceInterface;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -20,25 +21,23 @@ public class UserController {
   private UserServiceInterface AUserService;
 
   @GetMapping(value = "")
-  public ModelAndView userPage() {
-    ModelAndView modelAndView = new ModelAndView();
+  public String userPage(ModelMap model) {
     List<User> users = AUserService.findAll();
-    modelAndView.addObject("users", users);
-    modelAndView.setViewName("/users/list");
-    return modelAndView;
+    model.addAttribute("users", users);
+    return "/users/list";
   }
 
+  // ModelMap은 Spring MVC에서 컨트롤러에서 뷰로 데이터를 전달하는 객체
+  // ModelMap은 Map<String, object>를 확장한 형태로 더 유연하게 사용할수 있음
   @GetMapping(value = "/1/detail")
-  public ModelAndView detailPage() {
-    ModelAndView modelAndView = new ModelAndView();
+  public String detailPage(ModelMap model) {
     User user = AUserService.findById(1);
-    modelAndView.addObject("id", user.getId());
-    modelAndView.addObject("name", user.getName());
-    modelAndView.addObject("age", user.getAge());
-    modelAndView.addObject("job", user.getJob());
-    modelAndView.addObject("specialty", user.getSpecialty());
-    modelAndView.setViewName("/users/detail");
-    return modelAndView;
+    model.addAttribute("id", user.getId());
+    model.addAttribute("name", user.getName());
+    model.addAttribute("age", user.getAge());
+    model.addAttribute("job", user.getJob());
+    model.addAttribute("specialty", user.getSpecialty());
+    return "/users/detail";
   }
 
 }
