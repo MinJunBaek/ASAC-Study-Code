@@ -6,7 +6,7 @@ import java.util.Map;
 import org.springframework.stereotype.Service;
 
 @Service
-public class BUserService implements UserServiceInterface {
+public class UserService implements UserServiceInterface {
 
   private static final Map<Integer, User> users;
 
