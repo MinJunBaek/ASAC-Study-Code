@@ -11,8 +11,8 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
@@ -39,10 +39,8 @@ public class UserController {
     return "/users/list";
   }
 
-  @GetMapping(value = "/{id}/detail")
-  // @PathVariable Integer id -> @PathVariable("id") Integer id
-  // 이유 : 스프링이 파라미터 이름을 인식하지 못할 수도 있기 때문.
-  public String detailPage(@PathVariable("id") Integer id, Model model) {
+  @GetMapping(value = "/detail")
+  public String detailPage(@RequestParam("id") Integer id, Model model) {
     User user = userService.findById(id);
     model.addAttribute("id", user.getId());
     model.addAttribute("name", user.getName());
@@ -52,9 +50,9 @@ public class UserController {
     return "/users/detail";
   }
 
-  @GetMapping("/{id}/data")
+  @GetMapping("/data")
   @ResponseBody
-  public User detailData(@PathVariable("id") Integer id) {
+  public User detailData(@RequestParam("id") Integer id) {
     User user = userService.findById(id);
     return user;
   }
