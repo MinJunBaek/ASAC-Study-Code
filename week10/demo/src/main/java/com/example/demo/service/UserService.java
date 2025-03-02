@@ -24,4 +24,11 @@ public class UserService implements UserServiceInterface {
   public List<User> findAll() {
     return users.values().stream().toList();
   }
+
+  public User save(String name, Integer age, String job, String specialty) {
+    int generateId = users.size() + 1;
+    User saved = users.put(generateId, new User(generateId, name, age, job, specialty));
+    return users.get(generateId);
+
+  }
 }

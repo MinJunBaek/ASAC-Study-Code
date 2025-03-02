@@ -11,6 +11,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -54,6 +55,17 @@ public class UserController {
   @ResponseBody
   public User detailData(@RequestParam("id") Integer id) {
     User user = userService.findById(id);
+    return user;
+  }
+
+  @PostMapping("")
+  @ResponseBody
+  public User Save(
+      @RequestParam("name") String name,
+      @RequestParam("age") Integer age,
+      @RequestParam("job") String job,
+      @RequestParam("specialty") String specialty) {
+    User user = userService.save(name, age, job, specialty);
     return user;
   }
 }

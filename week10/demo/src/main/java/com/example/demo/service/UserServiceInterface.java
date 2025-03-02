@@ -8,4 +8,5 @@ public interface UserServiceInterface {
 
   List<User> findAll();
 
+  User save(String name, Integer age, String job, String specialty);
 }
