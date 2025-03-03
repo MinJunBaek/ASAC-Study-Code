@@ -29,6 +29,5 @@ public class UserService implements UserServiceInterface {
     int generateId = users.size() + 1;
     User saved = users.put(generateId, new User(generateId, name, age, job, specialty));
     return saved;
-
   }
 }
