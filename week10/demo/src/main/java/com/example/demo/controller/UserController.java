@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -60,7 +61,7 @@ public class UserController {
     return user;
   }
 
-  @PostMapping("")
+  @PostMapping("") // @RequestMapping(method = RequestMethod.POST)와 같다
   @ResponseBody
   public User Save(@RequestBody UserCreateRequestDto request) { // @RequestBody는 JSON형태의 데이터만 입력가능
     User user = userService.save(request.getName(), request.getAge(), request.getJob(), request.getSpecialty());
