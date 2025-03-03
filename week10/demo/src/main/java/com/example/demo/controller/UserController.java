@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import com.example.demo.controller.dto.UserCreateRequestDto;
 import com.example.demo.service.User;
 import com.example.demo.service.UserServiceInterface;
 import java.util.List;
@@ -11,6 +12,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -60,12 +62,8 @@ public class UserController {
 
   @PostMapping("")
   @ResponseBody
-  public User Save(
-      @RequestParam("name") String name,
-      @RequestParam("age") Integer age,
-      @RequestParam("job") String job,
-      @RequestParam("specialty") String specialty) {
-    User user = userService.save(name, age, job, specialty);
+  public User Save(@ModelAttribute UserCreateRequestDto request) {
+    User user = userService.save(request.getName(), request.getAge(), request.getJob(), request.getSpecialty());
     return user;
   }
 }
