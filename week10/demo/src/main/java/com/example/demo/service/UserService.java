@@ -1,8 +1,7 @@
 package com.example.demo.service;
 
-import java.util.HashMap;
+import com.example.demo.controller.dto.UserResponseDto;
 import java.util.List;
-import java.util.Map;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -12,20 +11,20 @@ public class UserService {
 
   private final UserRepository userRepository;
 
-  public User findById(Integer id) {
-    return userRepository.findById(id);
+  public UserResponseDto findById(Integer id) {
+    User user = userRepository.findById(id);
+    return UserResponseDto.from(user);
   }
 
-  public List<User> findAll() {
-    return userRepository.findAll();
+  public List<UserResponseDto> findAll() {
+    return userRepository.findAll()
+        .stream()
+        .map((user) -> UserResponseDto.from(user))
+        .toList();
   }
 
-  public User save(String name, Integer age, String job, String specialty) {
-    int generateId = userRepository.findAll().size() + 1;
-    // put()은 기존 값을 덮어쓰면서 기존 값을 반환
-    // 즉, 새로 추가한 User 객체가 반환되지 않고 기존 값(없으면 null)이 반환될 가능성이 있음
-    User user = new User(generateId, name, age, job, specialty);
-    userRepository.save(new User(null, name, age, job, specialty));
-    return user;
+  public UserResponseDto save(String name, Integer age, String job, String specialty) {
+    User user = userRepository.save(new User(null, name, age, job, specialty));
+    return UserResponseDto.from(user);
   }
 }

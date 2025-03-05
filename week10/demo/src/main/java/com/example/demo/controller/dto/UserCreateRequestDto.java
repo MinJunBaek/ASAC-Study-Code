@@ -15,11 +15,11 @@ import lombok.experimental.FieldDefaults;
 @NoArgsConstructor
 public class UserCreateRequestDto {
 
-  @NotBlank
+  @NotBlank // Null, "" 혹은 " "를 허용하지 않음
   String name;
-  @Min((10))
+  @Min((10)) // 최소 10 이상이어야 함
   Integer age;
-  @NotNull
+  @NotNull // Null만 허용하지 않음 "" 혹은 " "은 허용함.
   String job;
   String specialty = "(empty)";
 }
