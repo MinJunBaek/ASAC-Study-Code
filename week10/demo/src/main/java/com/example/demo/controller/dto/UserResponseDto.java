@@ -1,6 +1,8 @@
 package com.example.demo.controller.dto;
 
 import com.example.demo.service.User;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -16,7 +18,9 @@ public class UserResponseDto { // UserResponseDto 사용하는 이유 : 데이�
   Integer age;
   String job;
   String specialty;
+  @JsonInclude(Include.NON_NULL) // 필드 값이 Null 이면 Json 응답에서 제외하는 역할
   String address;
+  @JsonInclude(Include.NON_NULL) // @JsonInclude(JsonInclude.Include.NON_NULL)과 같다.
   String postcode;
 
   public static UserResponseDto from(User entity) {
