@@ -1,6 +1,7 @@
 package com.example.demo.controller.dto;
 
 import com.example.demo.service.User;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -21,6 +22,7 @@ public class UserResponseDto { // UserResponseDto 사용하는 이유 : 데이�
   Integer id;
   @JsonProperty("userName")
   String name;
+  @JsonIgnore // JSON 반환시 특정 프로퍼티 제외
   Integer age;
   String job;
   String specialty;
