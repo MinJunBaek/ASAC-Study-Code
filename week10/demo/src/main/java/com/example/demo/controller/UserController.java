@@ -1,8 +1,9 @@
 package com.example.demo.controller;
 
 import com.example.demo.controller.dto.UserCreateRequestDto;
+import com.example.demo.service.IRepository;
 import com.example.demo.service.User;
-import com.example.demo.service.UserServiceInterface;
+import com.example.demo.service.UserService;
 import jakarta.validation.Valid;
 import java.util.List;
 import lombok.AccessLevel;
@@ -25,7 +26,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class UserController {
 
-  UserServiceInterface userService;
+  UserService userService;
 
   @Autowired
   private ApplicationContext applicationContext;
@@ -33,7 +34,7 @@ public class UserController {
   @GetMapping("/bean")
   @ResponseBody
   public String bean() {
-    return applicationContext.getBean(UserServiceInterface.class).toString();
+    return applicationContext.getBean(IRepository.class).toString();
   }
 
   @GetMapping(value = "")

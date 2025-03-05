@@ -4,6 +4,7 @@ package com.example.demo.service;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.FieldDefaults;
 
@@ -13,6 +14,7 @@ import lombok.experimental.FieldDefaults;
 @AllArgsConstructor
 public class User {
 
+  @Setter
   Integer id;
   String name;
   Integer age;
