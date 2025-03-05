@@ -29,7 +29,7 @@ public class UserRepository implements IRepository<Integer, User> {
 
   @Override
   public User save(User entity) {
-    int generatedId = users.size();
+    int generatedId = users.size() + 1;
     entity.setId(generatedId);
     users.put(generatedId, entity);
     return users.get(generatedId);
