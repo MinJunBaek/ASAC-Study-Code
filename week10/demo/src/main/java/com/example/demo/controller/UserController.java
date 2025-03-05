@@ -55,9 +55,11 @@ public class UserController {
 
   @GetMapping("/data")
   @ResponseBody
-  public UserResponseDto detailData(@RequestParam("id") Integer id) {
+  public ResponseEntity<UserResponseDto> detailData(@RequestParam("id") Integer id) {
     UserResponseDto user = userService.findById(id);
-    return user;
+    return ResponseEntity
+        .status(HttpStatus.OK)
+        .body(user);
   }
 
   @PostMapping("") // @RequestMapping(method = RequestMethod.POST)와 같다 -> 사용자 데이터를 JSON으로 받아 새로운 사용자를 생성하는 역할
