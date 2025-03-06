@@ -1,6 +1,7 @@
 package com.example.demo.controller.dto;
 
 import com.example.demo.service.User;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
@@ -27,6 +28,7 @@ public class UserResponseDto { // UserResponseDto 사용하는 이유 : 데이�
   Integer age;
   String job;
   String specialty;
+  @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
   LocalDateTime createdAt;
   String address;
   String postcode;
