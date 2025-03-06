@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.time.LocalDateTime;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -26,6 +27,7 @@ public class UserResponseDto { // UserResponseDto 사용하는 이유 : 데이�
   Integer age;
   String job;
   String specialty;
+  LocalDateTime createdAt;
   String address;
   String postcode;
 
@@ -36,6 +38,7 @@ public class UserResponseDto { // UserResponseDto 사용하는 이유 : 데이�
         entity.getAge(),
         entity.getJob(),
         entity.getSpecialty(),
+        entity.getCreatedAt(),
         null,
         null
     );

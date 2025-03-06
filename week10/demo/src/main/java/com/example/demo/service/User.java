@@ -1,6 +1,7 @@
 package com.example.demo.service;
 
 
+import java.time.LocalDateTime;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -20,5 +21,6 @@ public class User {
   Integer age;
   String job;
   String specialty;
+  LocalDateTime createdAt;
 
 }
