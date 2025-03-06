@@ -25,7 +25,7 @@ public class UserResponseDto { // UserResponseDto 사용하는 이유 : 데이�
   String name;
   @JsonIgnore // JSON 반환시 특정 프로퍼티 제외
   Integer age;
-  String job;
+  JobType job;
   String specialty;
   @DateFormat
   LocalDateTime createdAt;

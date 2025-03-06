@@ -20,6 +20,6 @@ public class UserCreateRequestDto {
   @Min((10)) // 최소 10 이상이어야 함
   Integer age;
   @NotNull // Null만 허용하지 않음 "" 혹은 " "은 허용함.
-  String job;
+  JobType job;
   String specialty = "(empty)";
 }

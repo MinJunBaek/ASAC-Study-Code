@@ -1,6 +1,7 @@
 package com.example.demo.service;
 
 
+import com.example.demo.controller.dto.JobType;
 import java.time.LocalDateTime;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -19,7 +20,7 @@ public class User {
   Integer id;
   String name;
   Integer age;
-  String job;
+  JobType job;
   String specialty;
   LocalDateTime createdAt;
 
