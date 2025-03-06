@@ -12,9 +12,8 @@ import lombok.experimental.FieldDefaults;
 @AllArgsConstructor
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
 public enum JobType {
-  @JsonProperty("Developer 개발자") // 등록하려면 job 부분에 Developer 개발자 라고 입력해야함
+  // @JsonProperty("Developer 개발자") 아무것도 설정하지 않으면 기본값(Enum의 이름)이 출력된다.
   DEVELOPER("Developer", Arrays.asList("Frontend", "Backend")),
-  @JsonProperty("Engineer 엔지니어")
   ENGINEER("Engineer", Arrays.asList("DevOps", "SRE"));
 
   String name;
