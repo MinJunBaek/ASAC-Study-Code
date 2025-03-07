@@ -1,9 +1,9 @@
 package com.example.demo.controller.dto;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonCreator.Mode;
 import java.util.Arrays;
 import java.util.List;
+import java.util.NoSuchElementException;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -31,6 +31,8 @@ public enum JobType {
         return each;
       }
     }
-    throw new RuntimeException("JobType 내 해당하는 Enum 이 존재하지 않습니다. name : " + name);
+    // 컬렉션(List, Set, Map 등)에서 찾으려는 요소가 없을 때 발생하는 예외
+    throw new NoSuchElementException("JobType 내 해당하는 Enum 이 존재하지 않습니다. name : " + name);
+    // RuntimeException을 무조건적으로 사용하면 안돼는 이유 : 모든 실행 중 예외의 부모 클래스라 너무 포괄적이어서 구체적인 예외 상황을 파악하기 어럽게 만들수 있음
   }
 }

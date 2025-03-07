@@ -20,10 +20,11 @@ public class UserRepository implements IRepository<Integer, User> {
     users.put(3, new User(3, "Caron", 30, JobType.ENGINEER, "DevOps/SRE", LocalDateTime.now().plusMinutes(30)));
   }
 
+  // new IllegalArgumentException() 메서드의 매개변수가 잘못되었을 때 발생하는 예외
   @Override
   public User findById(Integer id) {
     Optional<User> retrieved = Optional.ofNullable(users.get(id));
-    return retrieved.orElseThrow(() -> new RuntimeException("유저가 존재하지 않습니다. id : " + id));
+    return retrieved.orElseThrow(() -> new IllegalArgumentException("유저가 존재하지 않습니다. id : " + id));
   }
 
   @Override
