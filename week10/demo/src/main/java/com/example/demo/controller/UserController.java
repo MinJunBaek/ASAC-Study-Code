@@ -70,6 +70,10 @@ public class UserController {
       return ResponseEntity
           .status(HttpStatus.BAD_REQUEST) // HTTP Status Code : 400
           .body(null);
+    } catch (Exception e) {
+      return ResponseEntity
+          .status(HttpStatus.INTERNAL_SERVER_ERROR)
+          .body(null);
     }
   }
 
@@ -90,6 +94,10 @@ public class UserController {
     } catch (IllegalArgumentException e) {
       return ResponseEntity
           .status(HttpStatus.BAD_REQUEST) // 1. HTTP Status Code : 400
+          .body(null); // 2. 결과 객체(User)
+    } catch (Exception e) {
+      return ResponseEntity
+          .status(HttpStatus.INTERNAL_SERVER_ERROR) // 1. HTTP Status Code : 500
           .body(null); // 2. 결과 객체(User)
     }
   }
