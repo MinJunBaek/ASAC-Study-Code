@@ -6,6 +6,7 @@ import com.example.demo.service.IRepository;
 import com.example.demo.service.UserService;
 import jakarta.validation.Valid;
 import java.util.List;
+import java.util.NoSuchElementException;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
@@ -61,23 +62,35 @@ public class UserController {
       return ResponseEntity
           .status(HttpStatus.OK) // HTTP Status Code : 200
           .body(user);
-    } catch (RuntimeException e) {
+    } catch (NoSuchElementException e) {
       return ResponseEntity
           .status(HttpStatus.NOT_FOUND) // HTTP Status Code : 404
+          .body(null);
+    } catch (IllegalArgumentException e) {
+      return ResponseEntity
+          .status(HttpStatus.BAD_REQUEST) // HTTP Status Code : 400
           .body(null);
     }
   }
 
-  @PostMapping("") // @RequestMapping(method = RequestMethod.POST)와 같다 -> 사용자 데이터를 JSON으로 받아 새로운 사용자를 생성하는 역할
-  @ResponseBody  // 메서드 반환값을 HTTP 응답 본문(body)에 직접 포함됨. 즉, UserResponseDto 객체가 JSON 형식으로 변환되어 클라이언트에게 응답
-  public ResponseEntity<UserResponseDto> Save(
-      @RequestBody @Valid UserCreateRequestDto request) { // @RequestBody는 HTTP 요청의 본문에서 데이터를 읽어와 JAVA객체로 변환
-    // 클라이언트가 JSON형식으로 데이터를 보낼 경우 UserCreateRequestDto가 자동으로 매핑
-    UserResponseDto user = userService.save(request.getName(), request.getAge(), request.getJob(),
-        request.getSpecialty());
-    return ResponseEntity
+  @PostMapping("")
+  @ResponseBody
+  public ResponseEntity<UserResponseDto> Save(@RequestBody @Valid UserCreateRequestDto request) {
+    try {
+      UserResponseDto user = userService.save(request.getName(), request.getAge(), request.getJob(),
+          request.getSpecialty());
+      return ResponseEntity
 //      .status(HttpStatusCode.valueOf(201))
-        .status(HttpStatus.CREATED) // 1. HTTP Status Code
-        .body(user); // 2. 결과 객체(User)
+          .status(HttpStatus.CREATED) // 1. HTTP Status Code : 201
+          .body(user); // 2. 결과 객체(User)
+    } catch (NoSuchElementException e) {
+      return ResponseEntity
+          .status(HttpStatus.NOT_FOUND) // 1. HTTP Status Code : 404
+          .body(null); // 2. 결과 객체(User)
+    } catch (IllegalArgumentException e) {
+      return ResponseEntity
+          .status(HttpStatus.BAD_REQUEST) // 1. HTTP Status Code : 400
+          .body(null); // 2. 결과 객체(User)
+    }
   }
 }
