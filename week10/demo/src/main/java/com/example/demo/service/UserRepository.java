@@ -1,6 +1,7 @@
 package com.example.demo.service;
 
 import com.example.demo.controller.dto.JobType;
+import com.example.demo.exception.UserNotFoundException;
 import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.List;
@@ -19,12 +20,11 @@ public class UserRepository implements IRepository<Integer, User> {
     users.put(2, new User(2, "Baron", 20, JobType.DEVELOPER, "Frontend", LocalDateTime.now().plusMinutes(20)));
     users.put(3, new User(3, "Caron", 30, JobType.ENGINEER, "DevOps/SRE", LocalDateTime.now().plusMinutes(30)));
   }
-
-  // new IllegalArgumentException() 메서드의 매개변수가 잘못되었을 때 발생하는 예외
+  
   @Override
   public User findById(Integer id) {
     Optional<User> retrieved = Optional.ofNullable(users.get(id));
-    return retrieved.orElseThrow(() -> new IllegalArgumentException("유저가 존재하지 않습니다. id : " + id));
+    return retrieved.orElseThrow(() -> new UserNotFoundException("유저가 존재하지 않습니다. id : " + id));
   }
 
   @Override
