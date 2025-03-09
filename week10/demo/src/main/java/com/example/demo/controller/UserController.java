@@ -2,7 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.controller.dto.UserCreateRequestDto;
 import com.example.demo.controller.dto.UserResponseDto;
-import com.example.demo.exception.UserNotFoundException;
+import com.example.demo.exception.CustomException;
 import com.example.demo.service.IRepository;
 import com.example.demo.service.UserService;
 import jakarta.validation.Valid;
@@ -14,7 +14,6 @@ import lombok.experimental.FieldDefaults;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -63,13 +62,9 @@ public class UserController {
       return ResponseEntity
           .status(HttpStatus.OK) // HTTP Status Code : 200
           .body(user);
-    } catch (NoSuchElementException | UserNotFoundException e) {
+    } catch (CustomException e) {
       return ResponseEntity
           .status(HttpStatus.NOT_FOUND) // HTTP Status Code : 404
-          .body(null);
-    } catch (IllegalArgumentException e) {
-      return ResponseEntity
-          .status(HttpStatus.BAD_REQUEST) // HTTP Status Code : 400
           .body(null);
     } catch (Exception e) {
       return ResponseEntity
@@ -88,13 +83,9 @@ public class UserController {
 //      .status(HttpStatusCode.valueOf(201))
           .status(HttpStatus.CREATED) // 1. HTTP Status Code : 201
           .body(user); // 2. 결과 객체(User)
-    } catch (NoSuchElementException | UserNotFoundException e) {
+    } catch (CustomException e) {
       return ResponseEntity
           .status(HttpStatus.NOT_FOUND) // 1. HTTP Status Code : 404
-          .body(null); // 2. 결과 객체(User)
-    } catch (IllegalArgumentException e) {
-      return ResponseEntity
-          .status(HttpStatus.BAD_REQUEST) // 1. HTTP Status Code : 400
           .body(null); // 2. 결과 객체(User)
     } catch (Exception e) {
       return ResponseEntity
