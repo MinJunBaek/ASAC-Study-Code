@@ -11,6 +11,7 @@ import java.util.NoSuchElementException;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.http.HttpStatus;
@@ -19,6 +20,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+@Slf4j
 @Controller
 @RequestMapping("/users")
 @RequiredArgsConstructor
@@ -63,10 +65,12 @@ public class UserController {
           .status(HttpStatus.OK) // HTTP Status Code : 200
           .body(user);
     } catch (CustomException e) {
+      log.warn(e.getMessage(), e);
       return ResponseEntity
           .status(HttpStatus.NOT_FOUND) // HTTP Status Code : 404
           .body(null);
     } catch (Exception e) {
+      log.error(e.getMessage(), e);
       return ResponseEntity
           .status(HttpStatus.INTERNAL_SERVER_ERROR)
           .body(null);
@@ -84,10 +88,12 @@ public class UserController {
           .status(HttpStatus.CREATED) // 1. HTTP Status Code : 201
           .body(user); // 2. 결과 객체(User)
     } catch (CustomException e) {
+      log.warn(e.getMessage(), e);
       return ResponseEntity
           .status(HttpStatus.NOT_FOUND) // 1. HTTP Status Code : 404
           .body(null); // 2. 결과 객체(User)
     } catch (Exception e) {
+      log.error(e.getMessage(), e);
       return ResponseEntity
           .status(HttpStatus.INTERNAL_SERVER_ERROR) // 1. HTTP Status Code : 500
           .body(null); // 2. 결과 객체(User)
