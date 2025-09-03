@@ -300,3 +300,4 @@ gradle-app.setting
 **/.idea
 backend-review-mentoring/asac-07-kiosk-application
 /hackathon
+backend-review-mentoring/**
